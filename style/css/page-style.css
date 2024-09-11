@@ -1,0 +1,402 @@
+html, body {
+    height: 100%;
+    background: radial-gradient(hsl(189, 85%, 7%), hsl(189, 85%, 4%), #000);
+    /* background: radial-gradient(hsl(151, 61%, 7%), hsl(151, 61%, 4%), #000); */
+    color-scheme: dark;
+    margin: 0;
+    scrollbar-color: #437a83 #202324;
+    scroll-behavior: smooth;
+}
+
+.background {
+    background-image: url('/image/Metal-Gear-Rising-Revengeance09092020-035433-22695.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+
+    min-height: 100%;
+    min-width: 100%;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+}
+
+
+
+
+
+/* PRELOADER */
+#preloader {
+    background-color: #000000;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    /* display: flex; */
+    z-index: 9999;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+
+#preloader #loading {
+    position: relative;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image:
+        repeating-linear-gradient(
+            to left,
+            #ff000033,
+            #ff000033 0.1px,
+            #00ff0033 0.1px,
+            #00ff0033 0.3px,
+            #0000ff33 0.3px,
+            #0000ff33 0.5px
+        ),
+        repeating-linear-gradient(
+            rgba(15, 124, 160, 0),
+            rgba(141, 216, 233, 0) 0.15px,
+            #ffbf67 0.5px,
+            #ffbf67 1px,
+            rgba(141, 216, 233, 0) 1.3px,
+            rgba(15, 124, 160, 0) 1.4px
+        );
+    filter:
+        blur(0.2px)
+        drop-shadow(1px 1px 2px #eaa6466d)
+        drop-shadow(1px -1px 2px #eaa6466d)
+        drop-shadow(-1px 1px 2px #eaa6466d)
+        drop-shadow(-1px -1px 2px #eaa6466d);
+        
+    
+    margin-bottom: 10px;
+    margin-right: 50px;
+    position: absolute;
+    /* display: flex; */
+    bottom: 0;
+    right: 0;
+}
+
+
+
+
+
+/* ICON '?' */
+#index-icon {
+    position: fixed;
+    /* display: flex; */
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+
+    cursor: pointer;
+
+    background-image: url('/image/index-icon.png');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+
+    filter: drop-shadow(0 0 15px #81e4f5);
+}
+
+
+
+
+
+/* DYNAMIC MESSAGE */
+.message {
+    position: absolute;
+    height: 246px;
+    width: 400px;
+    margin: auto;
+    z-index: 10;
+    bottom: 50px;
+    right: 50px;
+    perspective: 1000px;
+}
+
+.author {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform-origin: 30% 60%;
+    filter: drop-shadow(0 0 6px black);
+}
+
+.author .avatar {
+    background-image: url('/image/Ava.webp');
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 222px;
+    width: 200px;
+    /* filter: */
+        /* contrast(120%); */
+        /* brightness(110%); */
+    image-rendering: optimizeQuality;
+    &::after {
+        content: '';
+        position: absolute;
+        background-image: url('/image/Tex-rgb.png');
+        background-repeat: repeat;
+        background-size: 1.2%;
+        opacity: 60%;
+        mask-image: url('/image/Ava.webp');
+        mask-repeat: no-repeat;
+        mask-size: cover;
+        height: inherit;
+        width: inherit;
+        mix-blend-mode: color;
+    }
+}
+
+.footer-author {
+    position: relative;
+    width: 200px;
+    height: 2px;
+    bottom: 0;
+}
+
+.line {
+    position: relative;
+    width: 200px;
+    height: 2px;
+    margin: 5px 0 5px;
+    
+    background-color: #d1ffff;
+    border-radius: 1px;
+    filter:
+        drop-shadow(0px 0px 10px #fff);
+
+}
+
+.photo {
+    position: absolute;
+    height: 246px;
+    width: 200px;
+    left: 0;
+    top: 0;
+    
+    transform: scaleY(0%);
+    transition: transform 0.25s;
+}
+
+.photo.active {
+    transform: scaleY(100%);
+}
+
+
+
+/* INFORMATION MESSAGE */
+.info {
+    position: absolute;
+    left: 200px;
+    top: 0;
+    margin-left: 5px;
+    text-rendering: geometricPrecision;
+    filter: drop-shadow(0 0 6px black);
+}
+
+.info li:first-child {
+    margin-top: 0;
+    color: #ffce5b;
+    text-shadow: 0 0 15px #ffcb2d;
+}
+
+.info li {
+    margin: 10px 0 10px;
+
+    transform: scaleY(100%);
+    transition: transform 0.25s;
+}
+
+.info li.hidden {
+    transform: scaleY(0%);
+}
+
+.info li:last-child {
+    margin-bottom: 0;
+}
+
+.info .txt {
+    list-style-type: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+    width: 200px;
+
+    line-height: 22px;
+    font-size: 14px;
+}
+
+
+
+
+
+/* CONTENT */
+.about {
+    position: absolute;
+    height: 90%;
+    width: 90%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    margin: auto;
+}
+
+.about .blockL {
+    position: absolute;
+    /* display: flex; */
+    width: 40%;
+    left: 0;
+}
+
+.about .blockR {
+    position: absolute;
+    overflow: hidden;
+    /* display: flex; */
+    height: 100%;
+    width: 60%;
+    right: 0;
+}
+
+.blockR .frame1,
+.frame2,
+.frame3,
+.frame4,
+.frame5,
+.frame6,
+.frame7,
+.frame8,
+.frame9 {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    image-rendering: optimizeQuality;
+
+    
+    opacity: 0;
+    margin: auto auto auto 0;
+    height: 0;
+    width: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+
+.frame1 {
+    background-image: url('/image/frame/1frame.webp');
+}
+
+.frame2 {
+    background-image: url('/image/frame/2frame.webp');
+}
+
+.frame3 {
+    background-image: url('/image/frame/3frame.webp');
+}
+
+.frame4 {
+    background-image: url('/image/frame/4frame.webp');
+}
+
+.frame5 {
+    background-image: url('/image/frame/5frame.webp');
+}
+
+.frame6 {
+    background-image: url('/image/frame/6frame.webp');
+}
+
+.frame7 {
+    background-image: url('/image/frame/7frame.webp');
+}
+
+.frame8 {
+    background-image: url('/image/frame/8frame.webp');
+}
+
+.frame9 {
+    background-image: url('/image/frame/9frame.webp');
+}
+
+#hidd {
+    z-index: 4;
+
+    margin: auto auto auto 10%;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    filter: blur(6px);
+    /* background-size: 150%; */
+
+    transition: all 0.4s;
+}
+
+#pos1 {
+    z-index: 3;
+
+    margin: auto auto auto 10%;
+    height: 70%;
+    width: 90%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    filter:
+        blur(0)
+        drop-shadow(0 0 10px black);
+    /* background-size: contain; */
+    opacity: 100%;
+    
+    transition: all 1s;
+}
+
+#pos2 {
+    z-index: 2;
+
+    margin: auto auto auto 5%;
+    height: 50%;
+    width: 70%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    filter:
+        blur(2px)
+        drop-shadow(0 0 10px black);
+    /* background-size: contain; */
+    opacity: 100%;
+
+    transition: all 1s;
+}
+
+#pos3 {
+    z-index: 1;
+
+    margin: auto auto auto 0;
+    height: 30%;
+    width: 50%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    filter:
+        blur(6px)
+        drop-shadow(0 0 10px black);
+    /* background-size: contain; */
+    opacity: 100%;
+
+    transition: all 1s;
+}

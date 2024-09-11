@@ -1,0 +1,37 @@
+// Setting:
+$steps: 20;
+
+.avatar::before {
+    content: '';
+        position: absolute;
+        background-image: url('/image/RGB-Texture.webp');
+        background-size: 110%;
+        mask-image: url(/image/Ava.webp);
+        mask-repeat: no-repeat;
+        -webkit-mask-position-x: center;
+        mask-size: cover;
+        min-height: 100%;
+        min-width: 100%;
+        mix-blend-mode: hue;
+
+    clip: rect(0, 9999px, 0, 0);
+    transform: 
+        translateX(0)
+        scaleX(0)
+        skewX(0);
+        
+    animation: glitch-effect-3 1s infinite linear alternate-reverse;
+}
+
+
+@keyframes glitch-effect-3{
+    @for $i from 0 through $steps{
+        #{percentage($i*(1/$steps))}{
+          clip: rect(random(300) - 10 + px, 9999px, random(300) - 10 + px, 0);
+          transform: 
+            skewX((random(20) - 10) + deg)
+            translateX((random(10) - 5) + px);
+        }
+    }
+}
+
