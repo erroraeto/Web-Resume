@@ -22,7 +22,6 @@ h1,
   font-size: 30px;
 }
 
-h2,
 .txt-item {
   font-family: "Archivo", sans-serif;
   color: white;
@@ -31,14 +30,23 @@ h2,
   font-size: 30px;
 }
 
-p {
+/* p {
   font-family: "Archivo", sans-serif;
   letter-spacing: -0.5px;
   font-weight: 600;
   font-size: 28px;
+} */
+
+h2 {
+  font-family: "Chakra Petch", sans-serif;
+  color: #d1ffff;
+  text-shadow: 0 0 15px #81e4f5;
+  font-weight: 400;
+  margin: auto;
+  /* line-height: 25px; */
 }
 
-.txt {
+p {
   font-family: "Chakra Petch", sans-serif;
   color: #d1ffff;
   text-shadow: 0 0 15px #81e4f5;
@@ -46,7 +54,17 @@ p {
   line-height: 25px;
 }
 
-.blockL .txt {
+.panel p {
+  position: absolute;
+  font-size: 22px;
+
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;  
+  margin: auto;
+}
+
+.blockL p {
   font-size: 22px;
   line-height: initial;
   text-align: justify;
