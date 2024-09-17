@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
-    background: radial-gradient(hsl(189, 85%, 7%), hsl(189, 85%, 4%), #000);
+    /* background: radial-gradient(hsl(189, 85%, 7%), hsl(189, 85%, 4%), #000); */
+    background: black;
     /* background: radial-gradient(hsl(151, 61%, 7%), hsl(151, 61%, 4%), #000); */
     color-scheme: dark;
     margin: 0;
@@ -412,15 +413,16 @@ html, body {
 .blockL p {
     text-align: justify;
     padding: 20px 10px;
-    /* border-left: 1px dashed #d1ffff; */
-    /* border-right: 1px dashed #d1ffff; */
+    border-left: 1px dashed #d1ffff;
+    border-right: 1px dashed #d1ffff;
     margin: auto;
 }
 
 .blockL p:last-child {
     text-align: justify;
     padding: 20px 10px 0;
-    border-bottom: 1px solid #d1ffff;
+    /* border-bottom: 1px solid #d1ffff; */
+    border-bottom: 1px dashed #d1ffff;
     /* border-style: dashed; */
 }
 

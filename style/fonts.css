@@ -49,10 +49,20 @@ h2 {
 p {
   font-family: "Chakra Petch", sans-serif;
   /* font-family: 'Electrolize', sans-serif; */
-  color: #d1ffff;
-  text-shadow: 0 0 15px #81e4f5;
   font-weight: 300;
   line-height: 22px;
+  
+  color: #c5e9f7;
+  text-shadow:
+  0 0 4px black,
+  0 0 4px black,
+  -3px 0 1px #89caf09b,
+  3px 0 1px #89caf09b,
+  0 0 50px #89caf0,
+  0 0 50px #89caf0,
+  0 0 50px #89caf0;
+  filter: contrast(120%);
+  
 }
 
 .content p {
