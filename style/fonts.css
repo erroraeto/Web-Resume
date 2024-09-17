@@ -1,10 +1,10 @@
 /* Source */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
-/* font-family: "Cute Font", sans-serif; */
+@import url('https://fonts.googleapis.com/css?family=Electrolize');
+body {
+  font-family: "Chakra Petch", sans-serif;
+  color: #d1ffff;
+}
 
 #preloader > .status {
   font-family: "Michroma", sans-serif;
@@ -40,7 +40,7 @@ h1,
 h2 {
   font-family: "Chakra Petch", sans-serif;
   color: #d1ffff;
-  text-shadow: 0 0 15px #81e4f5;
+  /* text-shadow: 0 0 15px #81e4f5; */
   font-weight: 400;
   margin: auto;
   /* line-height: 25px; */
@@ -48,24 +48,19 @@ h2 {
 
 p {
   font-family: "Chakra Petch", sans-serif;
+  /* font-family: 'Electrolize', sans-serif; */
   color: #d1ffff;
   text-shadow: 0 0 15px #81e4f5;
   font-weight: 300;
-  line-height: 25px;
+  line-height: 22px;
 }
 
-.panel p {
-  position: absolute;
-  font-size: 22px;
-
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;  
-  margin: auto;
-}
-
-.blockL p {
-  font-size: 22px;
+.content p {
+  font-size: 20px;
   line-height: initial;
-  text-align: justify;
+}
+
+.button span {
+  width: max-content;
+  font-size: 18px;
 }
