@@ -361,7 +361,7 @@ html, body {
     position: relative;
 
     display: grid;
-    overflow: hidden;
+    /* overflow: hidden; */
 
     grid-template-columns: 40% 60%;
     grid-template-rows: auto;
@@ -377,6 +377,54 @@ html, body {
     height: 100%;
 }
 
+.blockL > div::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    filter:
+        var(--font-fltr)
+        drop-shadow(0 0 4px black)
+        /* drop-shadow(-3.5px 0 1px #89caf09b) */
+        drop-shadow(10px 0px 1px #89caf09b)
+        drop-shadow(0 0 50px #89caf0);
+}
+
+.blockL .box {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    
+    &::before {
+        border: 1px solid #c5e9f7;
+    }
+}
+
+.blockL h2 {
+    position: relative;
+    text-align: center;
+    padding: 8px 0;
+
+    background: repeating-linear-gradient(
+        to top,    
+        var(--font-clr) 0,
+        var(--font-clr) 2.5px,
+        transparent 3px,
+        transparent 3.5px,
+        var(--font-clr) 4px
+        );
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+    /* transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%; */
+}
+
 .blockL .content {
     position: relative;
     width: 100%;
@@ -386,44 +434,23 @@ html, body {
 
     height: auto;
     max-height: 100%;
-}
 
-.blockL .title {
-    position: relative;
-    width: 100%;
-    height: 40px;
-    background-color: #d1ffff;
-    color: transparent;
-}
-
-.blockL h2 {
-    position: relative;
-    text-align: center;
-    font-weight: 600;
-
-    background: radial-gradient(hsl(189, 85%, 7%), hsl(189, 85%, 4%), #000);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
+    &::before {
+        border-left: 1px dashed #d1ffff;
+        border-right: 1px dashed #d1ffff;
+        border-bottom: 1px solid #d1ffff;
+    }
 }
 
 .blockL p {
     text-align: justify;
     padding: 20px 10px;
-    border-left: 1px dashed #d1ffff;
-    border-right: 1px dashed #d1ffff;
     margin: auto;
 }
 
 .blockL p:last-child {
     text-align: justify;
     padding: 20px 10px 0;
-    /* border-bottom: 1px solid #d1ffff; */
-    border-bottom: 1px dashed #d1ffff;
-    /* border-style: dashed; */
 }
 
 .about .blockR {
