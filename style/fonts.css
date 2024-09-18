@@ -33,13 +33,13 @@ h2 {
   margin: auto;
 
   /* text-shadow: var(--font-shd); */
-  filter:
+  /* filter:
     var(--font-fltr)
     drop-shadow(0 0 4px black)
     drop-shadow(-3.5px 0 1px #89caf09b)
     drop-shadow(3.5px 0 1px #89caf09b)
     drop-shadow(0 0 50px #89caf0)
-    !important;
+    !important; */
 }
 
 p {
@@ -49,6 +49,7 @@ p {
   
   text-shadow: var(--font-shd);
   filter: var(--font-fltr);
+  image-rendering: optimizeSpeed;
   
 }
 

@@ -11,17 +11,6 @@ html, body {
     /* overflow-x: hidden; */
 }
 
-.background {
-    position: absolute;
-
-    min-height: 100%;
-    min-width: 100%;
-    padding: 0;
-    margin: 0;
-    left: 0;
-    top: 0;
-}
-
 
 
 
@@ -356,12 +345,13 @@ html, body {
 .about {
     position: relative;
     display: grid;
+    z-index: 1;
     
     grid-template-columns: 40% 60%;
     grid-template-rows: auto;
 
     margin: 40px auto;
-    height: 80%;
+    height: max-content;
     width: 90%;
     top: 60px;
     /* overflow: hidden; */
@@ -370,39 +360,40 @@ html, body {
 .about .blockL {
     position: relative;
     height: 100%;
-}
 
-.blockL > div::before {
-    content: '';
-    box-sizing: border-box;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
 
-    /* filter:
-        var(--font-fltr)
-        drop-shadow(0 0 4px black)
-        drop-shadow(10px 0px 1px #89caf09b)
-        drop-shadow(0 0 50px #89caf0); */
-}
-
-.blockL .box {
-    position: relative;
-    width: 100%;
-    height: max-content;
-
-    box-sizing: border-box;
-    border: 1px solid #c5e9f7;
-    
     &::before {
-        border: 1px solid #c5e9f7;
-        filter:
-            blur(2px);
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: -1;
+
+        box-sizing: border-box;
+        border: 1.5px solid #ff0000;
+
+        filter: blur(1.5px);
         transform:
-            translate(40px)
-            scale(90%);
+            translate(5px, 5px);
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: -1;
+
+
+        box-sizing: border-box;
+        border: 1.5px solid #0000ff;
+
+        filter: blur(1.5px);
+        transform:
+            translate(-5px, -5px);
     }
 }
 
@@ -411,20 +402,39 @@ html, body {
     text-align: center;
     padding: 8px 0;
 
-    background: repeating-linear-gradient(
-        to top,    
-        var(--font-clr) 0,
-        var(--font-clr) 2.5px,
-        transparent 3px,
-        transparent 3.5px,
-        var(--font-clr) 4px
-        );
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    
-    /* transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%; */
+    background: #c5e9f7;
+    color: black;
+    mix-blend-mode: screen;
+
+    &::before,
+    &::after {
+        content: 'Frontend Engineer';
+        position: absolute;
+        text-align: center;
+        padding: 8px 0;
+        height: inherit;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        mix-blend-mode: screen;
+        background: #c5e9f7;
+        color: black;
+        filter:
+            brightness(50%)
+            blur(1.5px);
+
+    }
+
+    &::after {
+        transform:
+            translate(-15px);
+    }
+
+    &::before {
+        transform:
+            translate(15px);
+    }
 }
 
 .blockL .content {
@@ -437,11 +447,9 @@ html, body {
     height: auto;
     max-height: 100%;
 
-    &::before {
-        border-left: 1px dashed #d1ffff;
-        border-right: 1px dashed #d1ffff;
-        border-bottom: 1px solid #d1ffff;
-    }
+    border-left: 1px dashed #0cfbe9;
+    border-right: 1px dashed #0cfbe9;
+    border-bottom: 1px solid #0cfbe9;
 }
 
 .blockL p {
