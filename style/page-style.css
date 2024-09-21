@@ -1,72 +1,38 @@
 html, body {
+    /* height: max-content; */
     height: 100%;
-    /* background: radial-gradient(hsl(189, 85%, 7%), hsl(189, 85%, 4%), #000); */
-    background: black;
-    /* background: radial-gradient(hsl(151, 61%, 7%), hsl(151, 61%, 4%), #000); */
-    color-scheme: dark;
     margin: 0;
+    /* background: black; */
     scrollbar-color: #437b8348 #161818;
     scroll-behavior: smooth;
-    /* overflow: hidden; */
-    /* overflow-x: hidden; */
+    color-scheme: dark;
+    overflow: hidden;
 }
 
-
-
-
-
-/* PRELOADER */
-#preloader {
-    background-color: #000000;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    /* display: flex; */
-    z-index: 9999;
-    bottom: 0;
-    right: 0;
+body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
     left: 0;
     top: 0;
-}
+    background: black;
 
-#preloader #loading {
-    position: relative;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    background-image:
-        repeating-linear-gradient(
-            to left,
-            #ff000033,
-            #ff000033 0.1px,
-            #00ff0033 0.1px,
-            #00ff0033 0.3px,
-            #0000ff33 0.3px,
-            #0000ff33 0.5px
-        ),
-        repeating-linear-gradient(
-            rgba(15, 124, 160, 0),
-            rgba(141, 216, 233, 0) 0.15px,
-            #ffbf67 0.5px,
-            #ffbf67 1px,
-            rgba(141, 216, 233, 0) 1.3px,
-            rgba(15, 124, 160, 0) 1.4px
-        );
-    filter:
-        blur(0.2px)
-        drop-shadow(1px 1px 2px #eaa6466d)
-        drop-shadow(1px -1px 2px #eaa6466d)
-        drop-shadow(-1px 1px 2px #eaa6466d)
-        drop-shadow(-1px -1px 2px #eaa6466d);
+    &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
         
-    
-    margin-bottom: 10px;
-    margin-right: 50px;
-    position: absolute;
-    /* display: flex; */
-    bottom: 0;
-    right: 0;
+        z-index: -1;
+        mask-image: radial-gradient(rgb(0 0 0), rgb(0 0 0), rgb(0 0 0 / 0.2), transparent);
+
+        background-image: radial-gradient(#c5e9f739 1px, transparent 0);
+        background-size: 10px 10px;
+        background-position: -19px -19px;
+
+    }
 }
 
 
@@ -76,7 +42,6 @@ html, body {
 /* ICON '?' */
 #index-icon {
     position: fixed;
-    /* display: flex; */
     bottom: 20px;
     right: 20px;
     z-index: 100;
@@ -97,7 +62,7 @@ html, body {
 
 /* DYNAMIC MESSAGE */
 .message {
-    position: absolute;
+    position: fixed;
     height: 246px;
     width: 400px;
     margin: auto;
@@ -116,29 +81,61 @@ html, body {
 }
 
 .author .avatar {
+    position: absolute;
+    height: 100%;
+    width: 200px;
+    image-rendering: optimizeSpeed;
+
     background-image: url('../image/Ava.webp');
-    background-position-x: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 222px;
-    width: 200px;
-    /* filter: */
-        /* contrast(120%); */
-        /* brightness(110%); */
-    image-rendering: optimizeQuality;
+
+    mask-image: repeating-linear-gradient(
+        #000000d6,
+        #000000d6 1px,
+        #000000 2px,
+        #000000 3px,
+        #000000d6 4px);
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    animation: glitch-mask 1s infinite linear;
+
+    
     &::after {
         content: '';
         position: absolute;
-        background-image: url('../image/Tex-rgb.png');
-        background-repeat: repeat;
-        background-size: 1.2%;
-        opacity: 60%;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+
+        opacity: 50%;
         mask-image: url('../image/Ava.webp');
         mask-repeat: no-repeat;
         mask-size: cover;
         height: inherit;
         width: inherit;
-        mix-blend-mode: color;
+
+        background-image: repeating-linear-gradient(
+            #c5e9f710,
+            #c5e9f710 1px,
+            #c5e9f74d 2px,
+            #c5e9f74d 3px,
+            #c5e9f710 4px);
+        mix-blend-mode: color-dodge;
+        animation: glitch-img 1s infinite linear;
+    }
+}
+
+@keyframes glitch-img {
+    from {
+        background-position-y: 8px;
+    }
+}
+
+@keyframes glitch-mask {
+    from {
+        mask-position: 0 8px;
     }
 }
 
@@ -168,6 +165,8 @@ html, body {
     width: 200px;
     left: 0;
     top: 0;
+    border-top: 2px solid #d1ffff;
+    border-bottom: 2px solid #d1ffff;
     
     transform: scaleY(0%);
     transition: transform 0.25s;
@@ -187,12 +186,6 @@ html, body {
     margin-left: 5px;
     text-rendering: geometricPrecision;
     filter: drop-shadow(0 0 6px black);
-}
-
-.info li:first-child {
-    margin-top: 0;
-    color: #ffce5b;
-    text-shadow: 0 0 15px #ffcb2d;
 }
 
 .info li {
@@ -253,7 +246,7 @@ html, body {
 
 .panel .line {
     position: relative;
-    width: 100%;
+    width: 0;
     border-bottom: 1px solid #d1ffff;
 }
 
@@ -264,9 +257,36 @@ html, body {
     width: max-content;
 }
 
+.button:hover span {
+    color: #c5e9f7;
+}
+
 .button span {
+    position: relative;
     display: block;
-    padding: 8px 10px 8px 10px;
+    /* padding: 8px 10px 8px 10px; */
+    margin: 8px 10px 8px 10px;
+    transition-duration: 0.3s;
+
+    &::after {
+        content: '';
+        position: absolute;
+        padding: 2px 4px 2px 4px;
+        translate: -50% -50%;
+        height: 100%;
+        width: 100%;
+        left: 50%;
+        top: 50%;
+        opacity: 50%;
+        z-index: -1;
+        transition-duration: 0.2s;
+    }
+}
+
+.button:hover span {
+    &::after {
+        background-color: #81e4f5;
+    }
 }
 
 .corners {
@@ -281,23 +301,34 @@ html, body {
     width: 5px;
     height: 5px;
     border: 1px solid #d1ffff;
-    z-index: 0;
+    z-index: 1;
     transition-duration: 0.3s;
     transform: translateZ(0);
     }
 }
 
+.button:hover .corners:before {
+    border-color: #0cfbe9;
+    height: 20px;
+    width: 50%;
+}
+.button:hover .corners:after {
+    border-color: #0cfbe9;
+    height: 20px;
+    width: 50%;
+}
+
 .top {
     &::before {
-    border-right-color: transparent;
-    border-bottom-color: transparent;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
     left: 0;
     top: 0;
     }
 
     &::after {
-    border-left-color: transparent;
-    border-bottom-color: transparent;
+    border-left-color: transparent !important;
+    border-bottom-color: transparent !important;
     right: 0;
     top: 0;
     }
@@ -305,15 +336,15 @@ html, body {
 
 .bottom {
     &::before {
-    border-right-color: transparent;
-    border-top-color: transparent;
+    border-right-color: transparent !important;
+    border-top-color: transparent !important;
     left: 0;
     bottom: 0;
     }
 
     &::after {
-    border-left-color: transparent;
-    border-top-color: transparent;
+    border-left-color: transparent !important;
+    border-top-color: transparent !important;
     right: 0;
     bottom: 0;
     }
@@ -342,102 +373,73 @@ html, body {
 
 
 /* CONTENT */
+.content {
+    position: relative;
+    display: grid;
+    /* height: max-content; */
+    height: 80%;
+    width: 100%;
+    margin: 20px 40px 20px 40px;
+    left: 0;
+    top: 80px;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: auto;
+    justify-content: space-evenly ;
+}
+
 .about {
     position: relative;
     display: grid;
-    z-index: 1;
+    /* z-index: 1; */
     
+    /* height: max-content; */
+    max-height: 100%;
+    width: 100%;
+
     grid-template-columns: 40% 60%;
     grid-template-rows: auto;
 
-    margin: 40px auto;
+    /* margin: 40px auto;
     height: max-content;
     width: 90%;
-    top: 60px;
-    /* overflow: hidden; */
+    top: 60px; */
 }
 
 .about .blockL {
     position: relative;
     height: 100%;
-
-
-    &::before {
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        left: 0;
-        top: 0;
-        z-index: -1;
-
-        box-sizing: border-box;
-        border: 1.5px solid #ff0000;
-
-        filter: blur(1.5px);
-        transform:
-            translate(5px, 5px);
-    }
-    &::after {
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        left: 0;
-        top: 0;
-        z-index: -1;
-
-
-        box-sizing: border-box;
-        border: 1.5px solid #0000ff;
-
-        filter: blur(1.5px);
-        transform:
-            translate(-5px, -5px);
-    }
 }
+
+.title {
+    position: relative;
+    height: max-content;
+    width: 100%;
+}
+
 
 .blockL h2 {
     position: relative;
     text-align: center;
+    text-anchor: middle;
     padding: 8px 0;
+    height: 100%;
 
-    background: #c5e9f7;
-    color: black;
-    mix-blend-mode: screen;
+    border: 1px solid #0cfbe9;
 
-    &::before,
-    &::after {
-        content: 'Frontend Engineer';
+    &::before {
+        content: '';
         position: absolute;
-        text-align: center;
-        padding: 8px 0;
-        height: inherit;
+        height: 100%;
         width: 100%;
         left: 0;
         top: 0;
+        opacity: 50%;
         z-index: -1;
-        mix-blend-mode: screen;
-        background: #c5e9f7;
-        color: black;
-        filter:
-            brightness(50%)
-            blur(1.5px);
-
-    }
-
-    &::after {
-        transform:
-            translate(-15px);
-    }
-
-    &::before {
-        transform:
-            translate(15px);
+        background-color: #81e4f5;
     }
 }
 
-.blockL .content {
+.blockL .description {
     position: relative;
     width: 100%;
     top: 0;
@@ -467,10 +469,6 @@ html, body {
     position: relative;
     overflow: hidden;
     height: 100%;
-
-    /* display: flex; */
-    /* width: 60%; */
-    /* right: 0; */
 }
 
 .blockR .frame1,
@@ -538,7 +536,8 @@ html, body {
 #hidd {
     z-index: 4;
 
-    margin: auto auto auto 10%;
+    margin: auto;
+    /* margin: auto auto auto 10%; */
     height: 100%;
     width: 100%;
     bottom: 0;
@@ -547,7 +546,7 @@ html, body {
     top: 0;
     opacity: 0;
     filter: blur(6px);
-    /* background-size: 150%; */
+    background-size: contain;
 
     transition: all 0.4s;
 }
@@ -555,7 +554,8 @@ html, body {
 #pos1 {
     z-index: 3;
 
-    margin: auto auto auto 10%;
+    margin: auto;
+    /* margin: auto auto auto 10%; */
     height: 70%;
     width: 90%;
     bottom: 0;
@@ -565,7 +565,7 @@ html, body {
     filter:
         blur(0)
         drop-shadow(0 0 10px black);
-    /* background-size: contain; */
+    background-size: contain;
     opacity: 100%;
     
     transition: all 1s;
@@ -574,7 +574,8 @@ html, body {
 #pos2 {
     z-index: 2;
 
-    margin: auto auto auto 5%;
+    margin: auto;
+    /* margin: auto auto auto 5%; */
     height: 50%;
     width: 70%;
     bottom: 0;
@@ -584,7 +585,7 @@ html, body {
     filter:
         blur(2px)
         drop-shadow(0 0 10px black);
-    /* background-size: contain; */
+    background-size: contain;
     opacity: 100%;
 
     transition: all 1s;
@@ -593,7 +594,8 @@ html, body {
 #pos3 {
     z-index: 1;
 
-    margin: auto auto auto 0;
+    margin: auto;
+    /* margin: auto auto auto 0; */
     height: 30%;
     width: 50%;
     bottom: 0;
@@ -603,8 +605,19 @@ html, body {
     filter:
         blur(6px)
         drop-shadow(0 0 10px black);
-    /* background-size: contain; */
+    background-size: contain;
     opacity: 100%;
 
     transition: all 1s;
+}
+
+
+
+
+
+.skills {
+    position: relative;
+    height: max-content;
+    width: 100%;
+    left: auto;
 }

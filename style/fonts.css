@@ -4,19 +4,43 @@
 
 :root {
   --font-clr: #c5e9f7;
+
+  --font-grad-clr: radial-gradient(
+    circle at bottom,
+    #92fdf4 30%,
+    #a6e3fb 50%,
+    #a6e3fb 100%
+  );
+  
+  --txt-shdw:
+    -0.4px -0.4px 0.5px red,
+    0.4px 0.4px 0.5px blue;
+
   --font-shd: 0 0 4px black,
-  0 0 4px black,
-  -3.5px 0 1px #89caf09b,
-  3.5px 0 1px #89caf09b,
-  0 0 50px #89caf0,
-  0 0 50px #89caf0,
-  0 0 50px #89caf0;
+    0 0 4px black,
+    -3.5px 0 1px #89caf09b,
+    3.5px 0 1px #89caf09b,
+    0 0 50px #89caf0,
+    0 0 50px #89caf0,
+    0 0 50px #89caf0;
+    
+  --font-clr-red: #fea078;
+    
+  --font-shd-red: 0 0 4px black,
+    0 0 4px black,
+    -3.5px 0 1px #f06060c5,
+    3.5px 0 1px #f06060c5,
+    0 0 50px #f06060,
+    0 0 50px #f06060,
+    0 0 50px #f06060;
+    
   --font-fltr: contrast(120%);
 }
 
 body {
   font-family: "Chakra Petch", sans-serif;
   color: var(--font-clr);
+  text-shadow: var(--txt-shdw);
 }
 
 #preloader > .status {
@@ -31,15 +55,6 @@ h2 {
   font-weight: 800;
   font-size: 32px;
   margin: auto;
-
-  /* text-shadow: var(--font-shd); */
-  /* filter:
-    var(--font-fltr)
-    drop-shadow(0 0 4px black)
-    drop-shadow(-3.5px 0 1px #89caf09b)
-    drop-shadow(3.5px 0 1px #89caf09b)
-    drop-shadow(0 0 50px #89caf0)
-    !important; */
 }
 
 p {
@@ -47,13 +62,24 @@ p {
   font-weight: 300;
   line-height: 22px;
   
-  text-shadow: var(--font-shd);
+  /* text-shadow: var(--font-shd); */
   filter: var(--font-fltr);
   image-rendering: optimizeSpeed;
   
 }
 
-.content p {
+ul {
+  /* text-shadow: var(--font-shd); */
+  filter: var(--font-fltr);
+  image-rendering: optimizeSpeed;
+}
+
+.info li:first-child {
+  color: var(--font-clr-red);
+  /* text-shadow: var(--font-shd-red); */
+}
+
+.description p {
   font-size: 20px;
   line-height: initial;
 }
@@ -62,6 +88,6 @@ p {
   width: max-content;
   font-size: 18px;
 
-  text-shadow: var(--font-shd);
+  /* text-shadow: var(--font-shd); */
   filter: var(--font-fltr);
 }
