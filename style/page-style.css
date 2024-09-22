@@ -229,12 +229,6 @@ body {
     backdrop-filter: blur(5px);
 }
 
-@media (max-width: 600px) {
-    .panel {
-        margin: 20px 20px 20px 20px;
-    }
-}
-
 .nav {
     position: relative;
     display: grid;
@@ -373,19 +367,33 @@ body {
 
 
 /* CONTENT */
+.cntntWrp {
+    position: relative;
+    /* display: flex; */
+    /* height: 80%; */
+    height: max-content;
+    width: 100%;
+    top: 60px;
+    overflow: hidden;
+    transform-origin: center;
+}
+
 .content {
     position: relative;
     display: grid;
-    height: 80%;
+    /* height: 80%; */
+    height: max-content;
     width: max-content;
-    margin: 20px 40px 20px 40px;
-    left: 0;
-    top: 80px;
+    /* margin: 20px 40px 20px 40px; */
+    margin: 40px;
+    /* left: 0; */
+    /* top: 80px; */
     grid-template-columns: repeat(2, auto);
     grid-column-gap: 95px;
     grid-template-rows: auto;
     justify-content: space-around;
     overflow: hidden;
+    transition-duration: 0.5s;
 }
 
 .about {
@@ -393,8 +401,8 @@ body {
     display: grid;
     
     max-height: 100%;
-    /* width: 100%; */
-    width: 1441px;
+    width: 100%;
+    /* width: 1441px; */
 
     grid-template-columns: 40% 60%;
     grid-template-rows: auto;
@@ -615,7 +623,28 @@ body {
     position: relative;
     display: grid;
     justify-content: center;
-    max-height: 100%;
+    /* max-height: 100%; */
     width: 1441px;
     left: auto;
+}
+
+.parametrs {
+    fill: #c5e9f7;
+    opacity: 50%;
+    stroke: #c5e9f7;
+    stroke-width: 1px;
+
+    clip-path: polygon(
+        50% 18%,
+        94.89% 39.92%,
+        72.51% 87.33%,
+        33.7% 75.43%,
+        8.03% 40.3%);
+
+    /* clip-path: polygon(
+        50% 0%,
+        100% 38%,
+        82% 100%,
+        18% 100%,
+        0% 38%); */
 }
