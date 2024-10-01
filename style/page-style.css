@@ -89,54 +89,6 @@ body {
     background-image: url('../image/Ava.webp');
     background-repeat: no-repeat;
     background-size: cover;
-
-    mask-image: repeating-linear-gradient(
-        #000000d6,
-        #000000d6 1px,
-        #000000 2px,
-        #000000 3px,
-        #000000d6 4px);
-    mask-repeat: no-repeat;
-    mask-size: cover;
-    animation: glitch-mask 1s infinite linear;
-
-    
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        top: 0;
-
-        opacity: 50%;
-        mask-image: url('../image/Ava.webp');
-        mask-repeat: no-repeat;
-        mask-size: cover;
-        height: inherit;
-        width: inherit;
-
-        background-image: repeating-linear-gradient(
-            #c5e9f710,
-            #c5e9f710 1px,
-            #c5e9f74d 2px,
-            #c5e9f74d 3px,
-            #c5e9f710 4px);
-        mix-blend-mode: color-dodge;
-        animation: glitch-img 1s infinite linear;
-    }
-}
-
-@keyframes glitch-img {
-    from {
-        background-position-y: 8px;
-    }
-}
-
-@keyframes glitch-mask {
-    from {
-        mask-position: 0 8px;
-    }
 }
 
 .footer-author {
@@ -482,7 +434,7 @@ body {
     background-position: center;
     background-size: contain;
     image-rendering: optimizeQuality;
-
+    z-index: 0;
     
     opacity: 0;
     margin: auto auto auto 0;
@@ -492,42 +444,80 @@ body {
     right: 0;
     left: 0;
     top: 0;
+
+    &::after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba(129, 228, 245, 0.5);
+        border: 1px solid #0cfbe9;
+        padding: 1px 3px;
+        transform: translate(-1px, -100%);
+    }
 }
 
 .frame1 {
     background-image: url('../image/frame/1frame.webp');
+    &::after {
+        content: 'Concepts & Design';
+    }
 }
 
 .frame2 {
     background-image: url('../image/frame/2frame.webp');
+    &::after {
+        content: 'Sculpting';
+    }
 }
 
 .frame3 {
     background-image: url('../image/frame/3frame.webp');
+    &::after {
+        content: 'Retopology';
+    }
 }
 
 .frame4 {
     background-image: url('../image/frame/4frame.webp');
+    &::after {
+        content: 'Retopology';
+    }
 }
 
 .frame5 {
     background-image: url('../image/frame/5frame.webp');
+    &::after {
+        content: 'Unwrap';
+    }
 }
 
 .frame6 {
     background-image: url('../image/frame/6frame.webp');
+    &::after {
+        content: 'Texturing Maps';
+    }
 }
 
 .frame7 {
     background-image: url('../image/frame/7frame.webp');
+    &::after {
+        content: 'Texturing Maps';
+    }
 }
 
 .frame8 {
     background-image: url('../image/frame/8frame.webp');
+    &::after {
+        content: 'Texturing';
+
+    }
 }
 
 .frame9 {
     background-image: url('../image/frame/9frame.webp');
+    &::after {
+        content: 'Rigging & Skinning';
+    }
 }
 
 #hidd {
@@ -544,6 +534,7 @@ body {
     opacity: 0;
     filter: blur(6px);
     background-size: contain;
+    border: 1px dashed #0cfbe9;
 
     transition: all 0.4s;
 }
@@ -563,6 +554,7 @@ body {
         blur(0)
         drop-shadow(0 0 10px black);
     background-size: contain;
+    border: 1px dashed #0cfbe9;
     opacity: 100%;
     
     transition: all 1s;
@@ -583,6 +575,7 @@ body {
         blur(2px)
         drop-shadow(0 0 10px black);
     background-size: contain;
+    border: 1px dashed #0cfbe9;
     opacity: 100%;
 
     transition: all 1s;
@@ -603,6 +596,7 @@ body {
         blur(6px)
         drop-shadow(0 0 10px black);
     background-size: contain;
+    border: 1px dashed #0cfbe9;
     opacity: 100%;
 
     transition: all 1s;
@@ -628,15 +622,11 @@ body {
     stroke-width: 1px;
 }
 
-.state {
+.figure {
     position: absolute;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
-}
-
-.state > * {
-    /* translate: 50% 50%; */
 }
 
 .parametrs {
@@ -657,4 +647,8 @@ body {
         82% 100%,
         18% 100%,
         0% 38%); */
+}
+
+.state > text {
+    font-size: 26px;
 }

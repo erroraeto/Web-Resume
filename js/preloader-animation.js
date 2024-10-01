@@ -71,7 +71,8 @@ xhr.send();
 
 xhr.onprogress = function(e) {
     if (e.lengthComputable) {
-        lineLoad.style.width += e.loaded + 'px';
+        // lineLoad.style.width += e.loaded + 'px';
+        lineLoad.style.width += e.loaded * 100 / e.total + '%';
     } else {
         alert(`Получено ${event.loaded} байт`);
     }
